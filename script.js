@@ -15,10 +15,19 @@ function contentText() {
 }
 contentText();
 
+function genereteColor() {
+  let r = Math.random() * 255;
+  let g = Math.random() * 255;
+  let b = Math.random() * 255;
+  
+  return `rgb(${r}, ${g}, ${b})`;
+}
+
 function createBalls() {
   for (let index = 0; index < 6; index += 1) {
     let ball = document.createElement('div');
     ball.className = 'ball';
+    ball.style.backgroundColor = genereteColor();
     sectionBalls.appendChild(ball);
   }
 }
