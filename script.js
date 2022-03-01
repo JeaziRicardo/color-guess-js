@@ -1,34 +1,43 @@
 const rgbText = document.querySelector('#rgb-color');
-const sectionBalls = document.querySelector('#balls');
+const ball = document.querySelectorAll('.ball');
+const answer = document.querySelector('#answer');
+const array = [];
 
-// As funções genereteNumber e genereteColor foram inspiradas na função do site: https://wallacemaxters.com.br/blog/2021/02/20/como-gerar-cores-aleatorias-no-javascript
+// A função genereteNumber foi inspirada na função do site: https://wallacemaxters.com.br/blog/2021/02/20/como-gerar-cores-aleatorias-no-javascript
 function genereteNumber() {
-  let r = Math.floor(Math.random() * 255);
-  let g = Math.floor(Math.random() * 255);
-  let b = Math.floor(Math.random() * 255);
-  
+  const r = Math.floor(Math.random() * 255);
+  const g = Math.floor(Math.random() * 255);
+  const b = Math.floor(Math.random() * 255);
   return `(${r}, ${g}, ${b})`;
 }
 
-function contentText() {
-  rgbText.innerHTML = genereteNumber();
-}
-contentText();
-
-function genereteColor() {
-  let r = Math.random() * 255;
-  let g = Math.random() * 255;
-  let b = Math.random() * 255;
-  
-  return `rgb(${r}, ${g}, ${b})`;
-}
-
-function createBalls() {
-  for (let index = 0; index < 6; index += 1) {
-    let ball = document.createElement('div');
-    ball.className = 'ball';
-    ball.style.backgroundColor = genereteColor();
-    sectionBalls.appendChild(ball);
+function colorBalls() {
+  for (let index = 0; index < ball.length; index += 1) {
+    ball[index].style.backgroundColor = `rgb${genereteNumber()}`;
+    array.push(ball[index].style.backgroundColor);
   }
 }
-createBalls();
+colorBalls();
+
+function colorNumber() {
+  const paragraph = array[Math.floor(Math.random() * array.length)];
+  rgbText.innerHTML = paragraph.slice(3);
+}
+colorNumber();
+
+function changeParagraph() {
+  if (this.style.backgroundColor !== `rgb${rgbText.innerHTML}`) {
+    answer.innerHTML = '';
+    answer.innerHTML = 'Errou! Tente novamente!';
+  } else {
+    answer.innerHTML = '';
+    answer.innerHTML = 'Acertou!';
+  }
+}
+
+function clickBall() {
+  for (let index = 0; index < ball.length; index += 1) {
+    ball[index].addEventListener('click', changeParagraph);
+  }
+}
+clickBall();
