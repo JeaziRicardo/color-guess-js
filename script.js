@@ -1,6 +1,7 @@
 const rgbText = document.querySelector('#rgb-color');
 const ball = document.querySelectorAll('.ball');
 const answer = document.querySelector('#answer');
+const resetGame = document.querySelector('#reset-game');
 const array = [];
 
 // A função genereteNumber foi inspirada na função do site: https://wallacemaxters.com.br/blog/2021/02/20/como-gerar-cores-aleatorias-no-javascript
@@ -41,3 +42,8 @@ function clickBall() {
   }
 }
 clickBall();
+
+function refresh() {
+  document.location.reload();
+}
+resetGame.addEventListener('click', refresh);
