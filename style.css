@@ -1,9 +1,73 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body {
+  width: 1366px;
+  height: 768px;
+  display: flex;
+  flex-flow: column wrap;
+  align-content: center;
+  background-image: url('https://agenciaimpacto.com.br/wp-content/uploads/2020/06/A-importancia-das-cores-na-identidade-visual.jpg');
+  background-size: cover;
+  background-position: center;
+  background-color: tomato;
+  text-align: center;
+  color: white;
+}
+
+h1 {
+  font-size: 80px;
+  margin-bottom: 40px;
+  font-family: Arial, sans-serif;
+  text-shadow: 2px 2px black;
+}
+
+main {
+  display: flex;
+  flex-flow: column wrap;
+  align-content: center;
+}
+
+main section p {
+  margin-bottom: 20px;
+  font-size: 40px;
+  font-weight: 700;
+  text-shadow: 2px 2px black;
+}
+
 .ball {
   border-radius: 100%;
-  width: 30px;
-  height: 30px;
+  width: 70px;
+  height: 70px;
+  margin: 5px;
+  box-shadow: 1px 1px white;
+}
+
+.ball:hover {
+  padding: 15px;
+  cursor: crosshair;
 }
 
 #balls {
   display: flex;
+}
+
+#answer {
+  margin-top: 20px;
+}
+
+#reset-game {
+  width: 100px;
+  height: 50px;
+  border-radius: 15px;
+  background-color: coral;
+  font-weight: 700;
+}
+
+#reset-game:hover {
+  border: 3px double green;
+  cursor: pointer;
 }
