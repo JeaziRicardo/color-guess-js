@@ -7,8 +7,8 @@ const array = [];
 let points = 0;
 score.innerHTML = `Placar: ${points}`;
 
-// A função genereteNumber foi inspirada na função do site: https://wallacemaxters.com.br/blog/2021/02/20/como-gerar-cores-aleatorias-no-javascript
-function genereteNumber() {
+// A função generateNumber foi inspirada na função do site: https://wallacemaxters.com.br/blog/2021/02/20/como-gerar-cores-aleatorias-no-javascript
+function generateNumber() {
   const r = Math.floor(Math.random() * 255);
   const g = Math.floor(Math.random() * 255);
   const b = Math.floor(Math.random() * 255);
@@ -25,10 +25,10 @@ function createBalls() {
 createBalls();
 
 function colorBalls() {
-  const balles = document.querySelectorAll('.ball');
-  for (let index = 0; index < balles.length; index += 1) {
-    balles[index].style.backgroundColor = `rgb${genereteNumber()}`;
-    array.push(balles[index].style.backgroundColor);
+  const ballAll = document.querySelectorAll('.ball');
+  for (let index = 0; index < ballAll.length; index += 1) {
+    ballAll[index].style.backgroundColor = `rgb${generateNumber()}`;
+    array.push(ballAll[index].style.backgroundColor);
   }
 }
 colorBalls();
@@ -53,9 +53,9 @@ function changeParagraph(event) {
 }
 
 function clickBall() {
-  const balles = document.querySelectorAll('.ball');
-  for (let index = 0; index < balles.length; index += 1) {
-    balles[index].addEventListener('click', changeParagraph);
+  const ballAll = document.querySelectorAll('.ball');
+  for (let index = 0; index < ballAll.length; index += 1) {
+    ballAll[index].addEventListener('click', changeParagraph);
   }
 }
 clickBall();
